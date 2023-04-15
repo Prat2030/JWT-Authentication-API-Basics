@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 // Import Routes
 const authRoute = require('./routes/auth');
 const port = 4000;
+const postRoute = require('./routes/posts');
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(express.json()); // Allows us to parse JSON
 
 // Route Middlewares
 app.use('/api/user', authRoute);
+app.use('/api/posts', postRoute);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
